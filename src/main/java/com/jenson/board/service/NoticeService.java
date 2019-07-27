@@ -29,7 +29,7 @@ public class NoticeService implements BoardService<Notice> {
         if (notice.isPresent()) {
             return notice.get();
         } else {
-            throw new NoResultException();
+            throw new NoResultException("request was not found. (request id = " + id + ")");
         }
     }
 

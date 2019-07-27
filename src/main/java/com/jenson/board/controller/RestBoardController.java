@@ -13,7 +13,7 @@ import java.net.URISyntaxException;
 
 @Slf4j
 @RestController
-@RequestMapping("/board")
+@RequestMapping("v1/board")
 public class RestBoardController {
 
     private BoardService<Notice> boardService;
