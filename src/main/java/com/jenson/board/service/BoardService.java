@@ -6,6 +6,6 @@ public interface BoardService<T> {
     List<T> findAll();
     T search(long id);
     T save(T t);
-    T update(T t, long id);
+    T update(T t);
     void delete(long id);
 }

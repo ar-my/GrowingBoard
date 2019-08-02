@@ -13,7 +13,7 @@ public class ExceptionController {
 
     @ExceptionHandler(NoResultException.class)
     public ResponseEntity noResultExceptionHandler(NoResultException e) {
-        log.error(e.getMessage());
+        log.debug(e.getMessage());
         return ResponseEntity.noContent().build();
     }
 }

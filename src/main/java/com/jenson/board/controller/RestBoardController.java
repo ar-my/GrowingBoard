@@ -38,9 +38,9 @@ public class RestBoardController {
         return ResponseEntity.created(new URI(ServletUriComponentsBuilder.fromCurrentRequestUri().build().toUriString() + "/" + result.getId())).build();
     }
 
-    @PutMapping("notice/{id}")
-    public ResponseEntity<?> put(@RequestBody Notice notice, @PathVariable long id) {
-        return ResponseEntity.ok(this.boardService.update(notice, id));
+    @PutMapping("notice")
+    public ResponseEntity<?> put(@RequestBody Notice notice) {
+        return ResponseEntity.ok(this.boardService.update(notice));
     }
 
     @DeleteMapping("notice/{id}")
