@@ -1,0 +1,12 @@
+-- /**
+--   init table schema with run application
+--  */
+--
+-- CREATE TABLE `notice` (
+--   id INT AUTO_INCREMENT PRIMARY KEY,
+--   title VARCHAR(128) NOT NULL,
+--   content TEXT,
+--   user_id VARCHAR(32) NOT NULL,
+--   create_at datetime NOT NULL,
+--   update_at datetime DEFAULT NULL,
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
