@@ -1,9 +1,10 @@
 package com.jenson.board.service;
 
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface BoardService<T> {
-    List<T> findAll();
+    Page<T> findAll(Pageable pageable);
     T search(long id);
     T save(T t);
     T update(T t);

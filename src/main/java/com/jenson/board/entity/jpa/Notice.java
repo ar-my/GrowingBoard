@@ -1,9 +1,6 @@
-package com.jenson.board.model.entity;
+package com.jenson.board.entity.jpa;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -22,4 +19,12 @@ public class Notice extends AuditorEntity {
     private String content;
     @Column
     private String userId;
+
+    public Notice(String title, String content, String userId) {
+        this.title = title;
+        this.content = content;
+        this.userId = userId;
+    }
+
+
 }

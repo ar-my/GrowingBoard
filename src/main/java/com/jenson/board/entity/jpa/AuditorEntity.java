@@ -1,4 +1,4 @@
-package com.jenson.board.model.entity;
+package com.jenson.board.entity.jpa;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;

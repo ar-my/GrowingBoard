@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:log4jdbc:mysql://localhost:3306/board?cacheServerConfiguration=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: board
+    password: board
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+  kafka:
+    bootstrap-servers: ${spring.embedded.kafka.brokers}

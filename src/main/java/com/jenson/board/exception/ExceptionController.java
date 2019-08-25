@@ -17,3 +17,5 @@ public class ExceptionController {
         return ResponseEntity.noContent().build();
     }
 }
+
+
