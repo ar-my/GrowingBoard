@@ -1,5 +1,7 @@
 package com.jenson.board.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.persistence.NoResultException;
@@ -14,17 +16,23 @@ public class GenericBoardService<T> implements BoardService<T> {
         this.repository = repository;
     }
 
+
     @Override
     public List<T> findAll() {
         return this.repository.findAll();
     }
 
     @Override
-    public T search(long id) {
-        Optional<T> notice = this.repository.findById(id);
+    public Page<T> findAll(Pageable pageable) {
+        return this.repository.findAll(pageable);
+    }
 
-        if (notice.isPresent()) {
-            return notice.get();
+    @Override
+    public T search(long id) {
+        Optional<T> optBoard = this.repository.findById(id);
+
+        if (optBoard.isPresent()) {
+            return optBoard.get();
         } else {
             throw new NoResultException("request was not found. (request id = " + id + ")");
         }
@@ -37,7 +45,7 @@ public class GenericBoardService<T> implements BoardService<T> {
 
     @Override
     public T update(T board) {
-        return this.save(board);
+        return this.repository.save(board);
     }
 
     @Override

@@ -1,24 +1,23 @@
 spring:
-  h2:
-    console:
-      enabled: true
-
   datasource:
-    url: jdbc:h2:mem:local;DB_CLOSE_ON_EXIT=FALSE;
-    username: sa
-    password:
+    url: jdbc:log4jdbc:mysql://mysql:3306/board?cacheServerConfiguration=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: board
+    password: board
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    database: h2
     show-sql: true
+    hibernate:
+      ddl-auto: create
+  redis:
+    host: redis
+  kafka:
+    bootstrap-servers: kafka1:9092
+#    bootstrap-servers: kafka1:9092, kafka2:9093, kafka3:9094
 
 logging:
   level:
     org.springframework.web: INFO
     org.hibernate.SQL: INFO
     org.hibernate.type: INFO
-
-
-
-
-
+    log4jdbc:
+      log4j2: WARN
