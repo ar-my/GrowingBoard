@@ -3,7 +3,6 @@ package com.jenson.board;
 import io.vavr.control.Option;
 import io.vavr.control.Try;
 import org.junit.Test;
-import scala.Function5;
 
 import java.util.Optional;
 import java.util.function.BiFunction;
@@ -24,7 +23,7 @@ public class VavrTests {
     }
 
     @Test(expected = NullPointerException.class)
-    public void optional_null_test() {
+        public void optional_null_test() {
         String name = null;
         Optional<String> nameOptional = Optional.of(name);
 
@@ -61,5 +60,5 @@ public class VavrTests {
         assertEquals(12, result);
     }
 
-    
+
 }

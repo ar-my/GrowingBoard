@@ -2,12 +2,14 @@ package com.jenson.board.controller;
 
 import com.jenson.board.entity.jpa.Notice;
 import com.jenson.board.entity.redis.RecentlyNotice;
+import com.jenson.board.repository.jpa.NoticeRepository;
 import com.jenson.board.service.BoardService;
 import com.jenson.board.service.NoticeBoardService;
 import com.jenson.board.service.RecentlyNoticeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -31,6 +33,11 @@ public class RestBoardController {
     @GetMapping("notice")
     public ResponseEntity notices(Pageable pageable) {
         return ResponseEntity.ok(this.boardService.findAll(pageable));
+    }
+
+    @GetMapping("notices")
+    public ResponseEntity noticeList() {
+        return ResponseEntity.ok(this.boardService.findAll());
     }
 
     @GetMapping("notice/{id}")

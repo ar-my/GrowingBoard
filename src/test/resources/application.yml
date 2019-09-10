@@ -4,5 +4,6 @@ spring:
     username: board
     password: board
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-  kafka:
-    bootstrap-servers: ${spring.embedded.kafka.brokers}
+#  kafka:
+#    bootstrap-servers: kafka1:9092,kafka2:9093,kafka3:9094
+

@@ -25,6 +25,4 @@ public class Notice extends AuditorEntity {
         this.content = content;
         this.userId = userId;
     }
-
-
 }

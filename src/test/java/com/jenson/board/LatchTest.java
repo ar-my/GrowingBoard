@@ -41,7 +41,7 @@ public class LatchTest {
         IntStream.range(0, 10).forEach(i -> new Thread(new RandomSleepRunnable(i)).start());
 
         try {
-            latch.await(1000, TimeUnit.MILLISECONDS);
+            latch.await(3000, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

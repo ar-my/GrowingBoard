@@ -2,8 +2,6 @@ package com.jenson.board;
 
 import com.jenson.board.entity.jpa.Notice;
 import com.jenson.board.repository.jpa.NoticeRepository;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,7 +11,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.context.transaction.AfterTransaction;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -29,21 +26,6 @@ public class BoardJpaTest {
 
     private Notice generatorUser() {
         return new Notice("whoami", "coffe", "jenson.lee");
-    }
-
-    @Before
-    public void showCountBefore() {
-        System.out.println("noticeRepository = " + noticeRepository.count());
-    }
-
-    @After
-    public void showCountAfter() {
-        System.out.println("noticeRepository = " + noticeRepository.count());
-    }
-
-    @AfterTransaction
-    public void showCountAfterTransaction() {
-        System.out.println("noticeRepository = " + noticeRepository.count());
     }
 
     @Test // MYSQL ENGINE 에 따라 롤백이 동작하지 않을 수도 있음

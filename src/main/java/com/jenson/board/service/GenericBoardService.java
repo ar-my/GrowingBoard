@@ -5,6 +5,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.persistence.NoResultException;
+import java.util.List;
 import java.util.Optional;
 
 public class GenericBoardService<T> implements BoardService<T> {
@@ -13,6 +14,12 @@ public class GenericBoardService<T> implements BoardService<T> {
 
     public GenericBoardService(JpaRepository<T, Long> repository) {
         this.repository = repository;
+    }
+
+
+    @Override
+    public List<T> findAll() {
+        return this.repository.findAll();
     }
 
     @Override
